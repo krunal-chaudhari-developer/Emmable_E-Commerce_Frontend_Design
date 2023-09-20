@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "font-satoshiBlack";
+  src: url("/public/fonts/Satoshi-Black.otf") format("opentype");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiBlackItalic";
+  src: url("/public/fonts/Satoshi-BlackItalic.otf") format("opentype");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiBold";
+  src: url("/public/fonts/Satoshi-Bold.otf") format("opentype");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiBoldItalic";
+  src: url("/public/fonts/Satoshi-BoldItalic.otf") format("opentype");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiItalic";
+  src: url("/public/fonts/Satoshi-Italic.otf") format("opentype");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiLight";
+  src: url("/public/fonts/Satoshi-Light.otf") format(".otf");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiLightItalic";
+  src: url("/public/fonts/Satoshi-LightItalic.otf") format(".otf");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiMedium";
+  src: url("/public/fonts/Satoshi-Medium.otf") format(".otf");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshimediumItalic";
+  src: url("/public/fonts/Satoshi-MediumItalic.otf") format(".otf");
+  /* You can add other font formats as fallbacks if needed */
+}
+@font-face {
+  font-family: "font-satoshiRegular";
+  src: url("/public/fonts/Satoshi-Regular.otf") format(".otf");
+  /* You can add other font formats as fallbacks if needed */
+}
