@@ -25,26 +25,26 @@
 }
 @font-face {
   font-family: "font-satoshiLight";
-  src: url("/public/fonts/Satoshi-Light.otf") format(".otf");
+  src: url("/public/fonts/Satoshi-Light.otf") format("opentype");
   /* You can add other font formats as fallbacks if needed */
 }
 @font-face {
   font-family: "font-satoshiLightItalic";
-  src: url("/public/fonts/Satoshi-LightItalic.otf") format(".otf");
+  src: url("/public/fonts/Satoshi-LightItalic.otf") format("opentype");
   /* You can add other font formats as fallbacks if needed */
 }
 @font-face {
   font-family: "font-satoshiMedium";
-  src: url("/public/fonts/Satoshi-Medium.otf") format(".otf");
+  src: url("/public/fonts/Satoshi-Medium.otf") format("opentype");
   /* You can add other font formats as fallbacks if needed */
 }
 @font-face {
   font-family: "font-satoshimediumItalic";
-  src: url("/public/fonts/Satoshi-MediumItalic.otf") format(".otf");
+  src: url("/public/fonts/Satoshi-MediumItalic.otf") format("opentype");
   /* You can add other font formats as fallbacks if needed */
 }
 @font-face {
   font-family: "font-satoshiRegular";
-  src: url("/public/fonts/Satoshi-Regular.otf") format(".otf");
+  src: url("/public/fonts/Satoshi-Regular.otf") format("opentype");
   /* You can add other font formats as fallbacks if needed */
 }
