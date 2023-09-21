@@ -8,12 +8,14 @@ import {
   MenuItem,
   MenuList,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [openSearch, setOpenSearch] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
-      <div className="font-">
+      <div className="">
         <div className={`shadow-lg shadow-gray-100 ${openSearch && "pb-5"}`}>
           <div className="flex px-4 py-2 my-1 justify-between">
             <div className="">
@@ -54,7 +56,10 @@ const Navbar = () => {
               </div>
               <FaShoppingCart size={20} className="text-gray-600 mt-1.5" />
               <div className="flex space-x-2">
-                <button className="border border-indigo-700 text-indigo-700 font-semibold px-4 rounded-lg">
+                <button
+                  onClick={() => navigate("/login")}
+                  className="border border-indigo-700 text-indigo-700 font-semibold px-4 rounded-lg"
+                >
                   Login
                 </button>
                 <div className="md:hidden block">
