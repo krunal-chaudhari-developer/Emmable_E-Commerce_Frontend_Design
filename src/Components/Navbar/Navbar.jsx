@@ -19,7 +19,9 @@ const Navbar = () => {
         <div className={`shadow-lg shadow-gray-100 ${openSearch && "pb-5"}`}>
           <div className="flex px-4 py-2 my-1 justify-between">
             <div className="">
-              <h1 className="text-indigo-700 font-bold text-2xl">Emmable</h1>
+              <h1 className="text-indigo-700 font-bold text-2xl font-custom">
+                Emmable
+              </h1>
             </div>
 
             <div className="hidden md:block">

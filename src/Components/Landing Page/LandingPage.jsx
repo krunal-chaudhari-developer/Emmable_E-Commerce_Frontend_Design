@@ -7,8 +7,12 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <div className="my-8 flex justify-center">
-        <img src={general} alt="banner" className="rounded-xl w-[800px] h-60" />
+      <div className="my-8 flex justify-center mx-3">
+        <img
+          src={general}
+          alt="banner"
+          className="rounded-3xl sm:rounded-xl w-[800px] h-60"
+        />
       </div>
       <div className="mb-5">
         <Sale />
