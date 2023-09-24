@@ -5,13 +5,13 @@ import Login from "./Components/Authentication/Login/Login";
 import ForgotPassword from "./Components/Authentication/Forget Password/Forgetpassword";
 import ResetPassword from "./Components/Authentication/Reset Password/ResetPassword";
 import Otp from "./Components/Authentication/Otp/Otp";
-import Navbar from "./Components/Navbar/Navbar";
+import LandingPage from "./Components/Landing Page/LandingPage";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Navbar />} />
+        <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/forgotpassword" element={<ForgotPassword />} />
