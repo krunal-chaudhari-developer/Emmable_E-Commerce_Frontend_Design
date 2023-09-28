@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiFillStar } from "react-icons/ai";
-import { sale } from "..";
+import { sale } from "../..";
 import { useMediaQuery } from "react-responsive";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Sale = () => {
   const [curSlide, setCurSlide] = useState(0);
@@ -54,20 +55,6 @@ const Sale = () => {
     isExtraSmallScreen,
   ]);
 
-  //   useEffect(() => {
-  //     if (isExtraLargeScreen) {
-  //       setSlidesPerPage(6);
-  //     } else if (isLargeScreen) {
-  //       setSlidesPerPage(4);
-  //     } else if (isMediumScreen) {
-  //       setSlidesPerPage(3);
-  //     } else if (isSmallScreen) {
-  //       setSlidesPerPage(2);
-  //     } else {
-  //       setSlidesPerPage(1);
-  //     }
-  //   }, [isExtraLargeScreen, isLargeScreen, isMediumScreen, isSmallScreen]);
-
   const goToPrevSlide = () => {
     setCurSlide((prevSlide) => Math.max(prevSlide - 1, 0));
   };
@@ -83,11 +70,11 @@ const Sale = () => {
     : sale.slice(curSlide, curSlide + slidesPerPage);
   return (
     <>
-      <div className="bg-gray-100 rounded-lg mx-3">
+      <div className="bg-gray-100 rounded-lg mx-2 sm:mx-5">
         <div className="sm:flex justify-between p-3">
           <div className="flex space-x-5">
             <div className="">
-              <h1 className="font-bold text-2xl">Flash Sale</h1>
+              <h1 className="font-bold text-xl sm:text-2xl">Flash Sale</h1>
             </div>
 
             <div className="flex space-x-2 p-1.5 bg-orange-400 rounded-md">
@@ -109,12 +96,13 @@ const Sale = () => {
         <div
           className={`${
             seeMore ? "grid grid-cols-2 sm:grid-cols-5 2xl:grid-cols-7" : ""
-          } flex pb-5`}
+          } flex px-1.5 sm:px-6 pb-5`}
         >
           {visibleSlides.map(({ id, img }) => (
-            <div
+            <Link
               key={id}
-              className="shadow-md rounded-lg h-fit w-fit mx-3 my-3"
+              to={`/sidebar/${id}`}
+              className="shadow-md rounded-lg h-fit w-fit mx-1 sm:mx-3 my-3"
             >
               <div className="">
                 <div className="">
@@ -123,14 +111,14 @@ const Sale = () => {
                     alt="products"
                     className={`${
                       seeMore ? "w-32 h-24" : "w-44 h-36"
-                    }  lg:w-52 lg:h-44 rounded-t-lg`}
+                    }  lg:w-56 lg:h-44 rounded-t-lg`}
                   />
                 </div>
-                <div className="p-1">
+                <div className="px-2.5 py-1">
                   <h1
                     className={`${
-                      seeMore ? "w-28" : "w-44"
-                    } lg:w-48 text-sm lg:text-base font-semibold`}
+                      seeMore ? "w-28" : "w-40"
+                    } lg:w-52 text-xs lg:text-sm font-semibold`}
                   >
                     {"Awesome Brand - Cool product with nice color Cool product with nice color".substring(
                       0,
@@ -139,39 +127,35 @@ const Sale = () => {
                     ...
                   </h1>
 
-                  <h1 className="font-bold my-2 text-sm lg:text-base">
-                    {id}$85.00
-                  </h1>
+                  <h1 className="font-bold my-2 text-xs lg:text-sm">$85.00</h1>
 
                   <div className="flex">
-                    <h1 className="text-red-600 bg-red-100 px-1 rounded text-sm lg:text-base">
+                    <h1 className="text-red-600 bg-red-100 px-1 rounded text-xs lg:text-sm">
                       40%
                     </h1>
-                    <h1 className="line-through mx-2 font-semibold text-sm lg:text-base">
+                    <h1 className="line-through mx-2 font-semibold text-xs lg:text-sm">
                       $46,000
                     </h1>
                   </div>
 
                   <div className="flex my-1">
                     <IoLocationSharp className="text-gray-600 mt-1" />
-                    <h1 className="font-semibold text-sm lg:text-base">
-                      Mumbai
-                    </h1>
+                    <h1 className="font-semibold text-xs lg:text-sm">Mumbai</h1>
                   </div>
 
                   <div className="flex pb-3">
                     <AiFillStar className="text-yellow-400 mt-1" />
                     <div className="flex space-x-2">
-                      <h1 className="text-sm lg:text-base">4.8</h1>
-                      <h1 className="text-sm lg:text-base">|</h1>
-                      <h1 className="text-xs lg:text-base mt-1 lg:mt-0">
+                      <h1 className="text-xs lg:text-sm">4.8</h1>
+                      <h1 className="text-xs lg:text-sm">|</h1>
+                      <h1 className="text-xs lg:text-sm mt-1 lg:mt-0">
                         Sold 700+
                       </h1>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         {!seeMore ? (

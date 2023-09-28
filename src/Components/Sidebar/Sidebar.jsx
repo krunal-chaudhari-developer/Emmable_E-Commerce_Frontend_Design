@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  const { id } = useParams();
+  return <div className="text-9xl">{id}</div>;
 };
 
 export default Sidebar;
