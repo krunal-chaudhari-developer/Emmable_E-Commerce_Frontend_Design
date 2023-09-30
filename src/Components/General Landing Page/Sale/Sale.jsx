@@ -29,9 +29,9 @@ const Sale = () => {
     } else if (isExtraLargeScreen1) {
       setSlidesPerPage(8);
     } else if (isExtraLargeScreen) {
-      setSlidesPerPage(7);
-    } else if (isLargeScreen) {
       setSlidesPerPage(6);
+    } else if (isLargeScreen) {
+      setSlidesPerPage(5);
     } else if (isMediumlargeScreen) {
       setSlidesPerPage(5);
     } else if (isMediumScreen) {
@@ -96,7 +96,7 @@ const Sale = () => {
         <div
           className={`${
             seeMore ? "grid grid-cols-2 sm:grid-cols-5 2xl:grid-cols-7" : ""
-          } flex px-1.5 sm:px-6 pb-5`}
+          } flex justify-center mx-1 pb-5`}
         >
           {visibleSlides.map(({ id, img }) => (
             <Link

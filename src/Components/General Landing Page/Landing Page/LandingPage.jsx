@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../Navbar/Navbar";
-import Sale from "./Sale/Sale";
-import general1 from "../../assets/general 1.jpeg";
-import general2 from "../../assets/Ad 2.png";
-import general3 from "../../assets/Ad 3.png";
-import general4 from "../../assets/Ad 4.png";
-import general5 from "../../assets/Ad 5.png";
-import Ads from "./Ads/Ads";
+import Navbar from "../../Navbar/Navbar";
+import Sale from "../Sale/Sale";
+import Ads from "../Ads/Ads";
+import Categories from "../Categories/Categories";
+import Products from "../Products/Products";
+import { images } from "../..";
 
 const LandingPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -70,31 +68,30 @@ const LandingPage = () => {
         </div>
         <Ads />
       </div>
+
+      <div className="my-20">
+        <div className="mx-7">
+          <div className="">
+            <h1 className="font-custom font-bold sm:text-xl md:text-2xl">
+              Popular Categories
+            </h1>
+          </div>
+        </div>
+        <Categories />
+      </div>
+
+      <div className="my-20">
+        <div className="mx-7">
+          <div className="">
+            <h1 className="font-custom font-bold sm:text-xl md:text-2xl">
+              Products You May Like
+            </h1>
+          </div>
+        </div>
+        <Products />
+      </div>
     </>
   );
 };
 
 export default LandingPage;
-
-export const images = [
-  {
-    id: 1,
-    img: general1,
-  },
-  {
-    id: 2,
-    img: general2,
-  },
-  {
-    id: 3,
-    img: general3,
-  },
-  {
-    id: 4,
-    img: general4,
-  },
-  {
-    id: 5,
-    img: general5,
-  },
-];

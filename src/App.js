@@ -5,8 +5,9 @@ import Login from "./Components/Authentication/Login/Login";
 import ForgotPassword from "./Components/Authentication/Forget Password/Forgetpassword";
 import ResetPassword from "./Components/Authentication/Reset Password/ResetPassword";
 import Otp from "./Components/Authentication/Otp/Otp";
-import LandingPage from "./Components/Landing Page/LandingPage";
+import LandingPage from "./Components/General Landing Page/Landing Page/LandingPage";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/otp" element={<Otp />} />
         <Route exact path="/sidebar/:id" element={<Sidebar />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

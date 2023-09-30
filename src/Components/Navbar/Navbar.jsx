@@ -48,12 +48,12 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="flex space-x-5 ">
+            <div className="flex space-x-2 sm:space-x-5 ">
               <div className="md:hidden block">
                 <AiOutlineSearch
                   onClick={() => setOpenSearch(!openSearch)}
                   size={20}
-                  className="mx-2 mt-2"
+                  className="ml-2 mt-2"
                 />
               </div>
               <FaShoppingCart size={20} className="text-gray-600 mt-1.5" />
