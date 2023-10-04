@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../Navbar/Navbar";
 import Sale from "../Sale/Sale";
 import Ads from "../Ads/Ads";
 import Categories from "../Categories/Categories";
 import Products from "../Products/Products";
 import { images } from "../..";
+import Layout from "../../Layout/Layout";
 
 const LandingPage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -18,8 +18,7 @@ const LandingPage = () => {
     return () => clearInterval(intervalId);
   }, []);
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className=" flex justify-center ">
         <div className="my-8 mx-3">
           {images.map((img, id) => (
@@ -90,7 +89,7 @@ const LandingPage = () => {
         </div>
         <Products />
       </div>
-    </>
+    </Layout>
   );
 };
 

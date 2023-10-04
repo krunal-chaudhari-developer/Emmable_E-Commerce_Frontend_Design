@@ -9,6 +9,12 @@ import general2 from "../assets/Ad 2.png";
 import general3 from "../assets/Ad 3.png";
 import general4 from "../assets/Ad 4.png";
 import general5 from "../assets/Ad 5.png";
+import mobile from "../assets/smartphone.png";
+import gaming from "../assets/gaming.png";
+import computer from "../assets/computer.png";
+import health from "../assets/health.png";
+import furniture from "../assets/furniture.png";
+import fashion from "../assets/fashion.png";
 
 export const sale = [
   {
@@ -146,5 +152,38 @@ export const images = [
   {
     id: 5,
     img: general5,
+  },
+];
+
+export const categories = [
+  {
+    id: 1,
+    img: mobile,
+    name: "Mobile Phones",
+  },
+  {
+    id: 2,
+    img: gaming,
+    name: "Gaming",
+  },
+  {
+    id: 3,
+    img: computer,
+    name: "Computer",
+  },
+  {
+    id: 4,
+    img: health,
+    name: "Health",
+  },
+  {
+    id: 5,
+    img: furniture,
+    name: "Furniture",
+  },
+  {
+    id: 6,
+    img: fashion,
+    name: "Fashion",
   },
 ];

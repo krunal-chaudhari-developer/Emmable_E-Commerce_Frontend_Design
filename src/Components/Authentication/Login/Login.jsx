@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
+import axios from "axios";
 
 const Login = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
+  const handleLogin = () => {
+    const formdata = new FormData();
+
+    formdata.append("email", data.email);
+    formdata.append("password", data.password);
+    axios
+      .post("https://192.168.0.112:3232/signin", formdata)
+      .then((res) => console.log(res));
+  };
+
   return (
     <>
       <div className="font-custom">
@@ -27,6 +48,9 @@ const Login = () => {
                   <BiUser className="mt-2 mr-1 " />
                   <input
                     type="text"
+                    name="email"
+                    value={data.name}
+                    onChange={handleInput}
                     className="outline-none border-b focus:border-indigo-700 w-64 md:w-72"
                   />
                 </div>
@@ -41,6 +65,9 @@ const Login = () => {
                   <AiOutlineLock className="mt-2 mr-1 " />
                   <input
                     type="password"
+                    name="password"
+                    value={data.password}
+                    onChange={handleInput}
                     className="outline-none border-b focus:border-indigo-700 w-64 md:w-72"
                   />
                 </div>
@@ -57,7 +84,10 @@ const Login = () => {
             </div>
 
             <div className="flex justify-center my-10">
-              <button className="text-white font-semibold bg-indigo-700 rounded-full px-10 py-1 outline-none">
+              <button
+                onClick={handleLogin}
+                className="text-white font-semibold bg-indigo-700 rounded-full px-10 py-1 outline-none"
+              >
                 Login
               </button>
             </div>

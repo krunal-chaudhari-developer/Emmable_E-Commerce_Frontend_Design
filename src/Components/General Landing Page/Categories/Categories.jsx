@@ -1,10 +1,5 @@
 import React from "react";
-import toys from "../../../assets/toys and hobby.png";
-import gaming from "../../../assets/gaming.png";
-import computer from "../../../assets/computer.png";
-import health from "../../../assets/health.png";
-import furniture from "../../../assets/furniture.png";
-import fashion from "../../../assets/fashion.png";
+import { categories } from "../..";
 
 const Categories = () => {
   return (
@@ -32,36 +27,3 @@ const Categories = () => {
 };
 
 export default Categories;
-
-export const categories = [
-  {
-    id: 1,
-    img: toys,
-    name: "Toys and Hobby",
-  },
-  {
-    id: 2,
-    img: gaming,
-    name: "Gaming",
-  },
-  {
-    id: 3,
-    img: computer,
-    name: "Computer",
-  },
-  {
-    id: 4,
-    img: health,
-    name: "Health",
-  },
-  {
-    id: 5,
-    img: furniture,
-    name: "Furniture",
-  },
-  {
-    id: 6,
-    img: fashion,
-    name: "Fashion",
-  },
-];

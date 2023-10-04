@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
 import PhoneInput from "react-phone-input-2";
@@ -8,7 +8,6 @@ import { FaRegAddressCard } from "react-icons/fa";
 
 const CreateAccount = () => {
   const [phone, setPhone] = useState("");
-  const navigate = useNavigate();
 
   return (
     <>
@@ -99,10 +98,7 @@ const CreateAccount = () => {
             </div>
 
             <div className="flex justify-center my-10">
-              <button
-                onClick={() => navigate("/otp")}
-                className="text-white font-semibold bg-indigo-700 rounded-full px-10 py-1 outline-none"
-              >
+              <button className="text-white font-semibold bg-indigo-700 rounded-full px-10 py-1 outline-none">
                 Create Account
               </button>
             </div>

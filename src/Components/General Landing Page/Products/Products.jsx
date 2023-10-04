@@ -14,7 +14,7 @@ const Products = () => {
           {sale.map((img, id) => (
             <Link
               key={id}
-              to={`/sidebar/${id}`}
+              to={`/singleproduct`}
               className="shadow-md rounded-lg h-fit w-fit mx-1 sm:mx-3 my-3"
             >
               <div className="">

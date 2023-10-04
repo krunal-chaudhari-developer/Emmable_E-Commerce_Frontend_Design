@@ -6,8 +6,7 @@ import ForgotPassword from "./Components/Authentication/Forget Password/Forgetpa
 import ResetPassword from "./Components/Authentication/Reset Password/ResetPassword";
 import Otp from "./Components/Authentication/Otp/Otp";
 import LandingPage from "./Components/General Landing Page/Landing Page/LandingPage";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import Footer from "./Components/Footer/Footer";
+import SingleProduct from "./Components/Single Product/SingleProduct";
 
 const App = () => {
   return (
@@ -19,9 +18,8 @@ const App = () => {
         <Route exact path="/forgotpassword" element={<ForgotPassword />} />
         <Route exact path="/resetpassword" element={<ResetPassword />} />
         <Route exact path="/otp" element={<Otp />} />
-        <Route exact path="/sidebar/:id" element={<Sidebar />} />
+        <Route exact path="/singleproduct" element={<SingleProduct />} />
       </Routes>
-      <Footer />
     </Router>
   );
 };
