@@ -4,7 +4,7 @@ import { categories } from "../..";
 const Categories = () => {
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:flex space-x-2 lg:space-x-3 mx-4 lg:mx-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 space-x-2 lg:space-x-3 mx-4 lg:mx-8">
         {categories.map(({ id, img, name }) => (
           <div
             key={id}
@@ -15,7 +15,7 @@ const Categories = () => {
             </div>
 
             <div className="flex justify-center my-5">
-              <h1 className="font-semibold font-custom text-xs whitespace-nowrap md:text-sm lg:text-base">
+              <h1 className="capitalize font-semibold font-custom text-xs whitespace-nowrap md:text-sm lg:text-base">
                 {name}
               </h1>
             </div>

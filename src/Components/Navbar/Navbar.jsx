@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsHeart, BsHeartFill, BsThreeDotsVertical } from "react-icons/bs";
 import {
   Menu,
   MenuHandler,
@@ -48,7 +48,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="flex space-x-2 sm:space-x-5 ">
+            <div className="flex space-x-2 sm:space-x-8 ">
               <div className="md:hidden block">
                 <AiOutlineSearch
                   onClick={() => setOpenSearch(!openSearch)}
@@ -56,7 +56,20 @@ const Navbar = () => {
                   className="ml-2 mt-2"
                 />
               </div>
-              <FaShoppingCart size={20} className="text-gray-600 mt-1.5" />
+
+              <div className="relative">
+                <BsHeartFill size={20} className="text-gray-600 mt-1.5" />
+                <h1 className="text-xs absolute top-0 -right-3 bg-indigo-700 text-white px-1 rounded-full border-2 border-white">
+                  1
+                </h1>
+              </div>
+
+              <div className="relative">
+                <FaShoppingCart size={20} className="text-gray-600 mt-1.5" />
+                <h1 className="text-xs absolute top-0 -right-3 bg-indigo-700 text-white px-1 rounded-full border-2 border-white">
+                  1
+                </h1>
+              </div>
               <div className="flex space-x-2">
                 <button
                   onClick={() => navigate("/login")}

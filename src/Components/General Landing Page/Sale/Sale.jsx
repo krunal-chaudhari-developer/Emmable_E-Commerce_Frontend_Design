@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { AiFillStar } from "react-icons/ai";
-import { sale } from "../..";
 import { useMediaQuery } from "react-responsive";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Sale = () => {
   const [curSlide, setCurSlide] = useState(0);
   const [slidesPerPage, setSlidesPerPage] = useState(0);
   const [seeMore, setSeeMore] = useState(false);
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products?skip=0&limit=100")
+      .then((res) => setProduct(res.data.products));
+  }, []);
 
   const isExtraLargeScreen3 = useMediaQuery({ minWidth: 2480 });
   const isExtraLargeScreen2 = useMediaQuery({ minWidth: 2300 });
@@ -61,13 +68,13 @@ const Sale = () => {
 
   const goToNextSlide = () => {
     setCurSlide((prevSlide) =>
-      Math.min(prevSlide + 1, sale.length - slidesPerPage)
+      Math.min(prevSlide + 1, product.length - slidesPerPage)
     );
   };
 
   const visibleSlides = seeMore
-    ? sale
-    : sale.slice(curSlide, curSlide + slidesPerPage);
+    ? product
+    : product.slice(curSlide, curSlide + slidesPerPage);
   return (
     <>
       <div className="bg-gray-100 rounded-lg mx-2 sm:mx-5">
@@ -98,17 +105,17 @@ const Sale = () => {
             seeMore ? "grid grid-cols-2 sm:grid-cols-5 2xl:grid-cols-7" : ""
           } flex justify-center mx-1 pb-5`}
         >
-          {visibleSlides.map(({ id, img }) => (
+          {visibleSlides.map((e, id) => (
             <Link
-              key={id}
-              to={`/singleproduct`}
+              key={e.id}
+              to={`/singleproduct/${e.id}`}
               className="shadow-md rounded-lg h-fit w-fit mx-1 sm:mx-3 my-3"
             >
               <div className="">
                 <div className="">
                   <img
-                    src={img}
-                    alt="products"
+                    src={e.thumbnail}
+                    alt={e.title}
                     className={`${
                       seeMore ? "w-32 h-24" : "w-44 h-36"
                     }  lg:w-56 lg:h-44 rounded-t-lg`}
@@ -120,42 +127,77 @@ const Sale = () => {
                       seeMore ? "w-28" : "w-40"
                     } lg:w-52 text-xs lg:text-sm font-semibold`}
                   >
-                    {"Awesome Brand - Cool product with nice color Cool product with nice color".substring(
-                      0,
-                      44
-                    )}
+                    {e.description.substring(0, 44)}
                     ...
                   </h1>
 
-                  <h1 className="font-bold my-2 text-xs lg:text-sm">$85.00</h1>
-
-                  <div className="flex">
+                  <div className="flex my-2 space-x-3">
+                    <h1 className="font-bold text-xs lg:text-sm">${e.price}</h1>
                     <h1 className="text-red-600 bg-red-100 px-1 rounded text-xs lg:text-sm">
-                      40%
+                      {e.discountPercentage}%
                     </h1>
-                    <h1 className="line-through mx-2 font-semibold text-xs lg:text-sm">
-                      $46,000
-                    </h1>
-                  </div>
-
-                  <div className="flex my-1">
-                    <IoLocationSharp className="text-gray-600 mt-1" />
-                    <h1 className="font-semibold text-xs lg:text-sm">Mumbai</h1>
                   </div>
 
                   <div className="flex pb-3">
                     <AiFillStar className="text-yellow-400 mt-1" />
                     <div className="flex space-x-2">
-                      <h1 className="text-xs lg:text-sm">4.8</h1>
+                      <h1 className="text-xs lg:text-sm">{e.rating}</h1>
                       <h1 className="text-xs lg:text-sm">|</h1>
                       <h1 className="text-xs lg:text-sm mt-1 lg:mt-0">
-                        Sold 700+
+                        Stock : {e.stock}
                       </h1>
                     </div>
                   </div>
                 </div>
               </div>
             </Link>
+            // <Link
+            //   key={id}
+            //   to={`/singleproduct/${e.id}`}
+            //   className="shadow-md rounded-lg h-fit w-fit mx-1 sm:mx-3 my-3"
+            // >
+            //   <div className="">
+            //     <div className="">
+            //       <img
+            //         src={e.image}
+            //         alt="products"
+            //         className={` w-32 h-32 sm:w-44 sm:h-32 lg:w-56 lg:h-44 rounded-t-lg`}
+            //       />
+            //     </div>
+            //     <div className="px-2.5 py-1">
+            //       <h1 className="font-bold text-lg capitalize my-1">
+            //         {e.name}
+            //       </h1>
+            //       <h1
+            //         className={` w-28 lg:w-52 text-xs lg:text-sm font-semibold`}
+            //       >
+            //         {`${e.description}`.substring(0, 44)}
+            //         ...
+            //       </h1>
+
+            //       <div className="flex space-x-2 my-2">
+            //         <h1 className="font-bold text-xs lg:text-sm">
+            //           {" "}
+            //           Rs. {e.price}
+            //         </h1>
+
+            //         <h1 className="line-through font-semibold text-xs lg:text-sm">
+            //           Rs. 50000
+            //         </h1>
+            //       </div>
+
+            //       <div className="flex my-2">
+            //         <h1 className="text-xs lg:text-sm bg-gray-300 text-gray-600 px-1 py-0.5 rounded-md">
+            //           Company
+            //         </h1>
+            //         {/* <IoLocationSharp className="text-gray-600 sm:mt-1" /> */}
+            //         <h1 className="font-semibold text-xs lg:text-sm capitalize mx-2 mt-0.5">
+            //           {e.company}
+            //         </h1>
+            //       </div>
+            //     </div>
+            //   </div>
+            // </Link>
           ))}
         </div>
         {!seeMore ? (
@@ -173,7 +215,7 @@ const Sale = () => {
               size={45}
               onClick={goToNextSlide}
               className={`${
-                curSlide >= sale.length - slidesPerPage ? "hidden" : "block"
+                curSlide >= product.length - slidesPerPage ? "hidden" : "block"
               } absolute right-3 -mt-48 bg-white py-2 rounded-full`}
             >
               Next

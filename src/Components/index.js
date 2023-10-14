@@ -9,12 +9,26 @@ import general2 from "../assets/Ad 2.png";
 import general3 from "../assets/Ad 3.png";
 import general4 from "../assets/Ad 4.png";
 import general5 from "../assets/Ad 5.png";
-import mobile from "../assets/smartphone.png";
-import gaming from "../assets/gaming.png";
-import computer from "../assets/computer.png";
-import health from "../assets/health.png";
+import smartphones from "../assets/smartphones.png";
+import laptops from "../assets/laptops.png";
+import fragrances from "../assets/fragrances.png";
+import skincare from "../assets/Skincare.png";
+import groceries from "../assets/groceries.png";
+import homedecoration from "../assets/Home-Decoration.png";
 import furniture from "../assets/furniture.png";
-import fashion from "../assets/fashion.png";
+import tops from "../assets/Tops.png";
+import womensDress from "../assets/Women's-dress.png";
+import womenShoes from "../assets/Women's Shoes.png";
+import menShirt from "../assets/Men's Shirt.png";
+import menShoes from "../assets/Men's Shoes.png";
+import menWatches from "../assets/Men's Watch.png";
+import WomenWatch from "../assets/Women's Watch.png";
+import Bag from "../assets/Bags.png";
+import Jewellery from "../assets/Jewellery.png";
+import Sunglasses from "../assets/sunglasses.png";
+import Automotive from "../assets/Automotive.png";
+import Motorcycle from "../assets/Motorcycle.png";
+import Lighting from "../assets/Lighting.png";
 
 export const sale = [
   {
@@ -158,32 +172,102 @@ export const images = [
 export const categories = [
   {
     id: 1,
-    img: mobile,
-    name: "Mobile Phones",
+    img: smartphones,
+    name: "smartphones",
   },
   {
     id: 2,
-    img: gaming,
-    name: "Gaming",
+    img: laptops,
+    name: "laptops",
   },
   {
     id: 3,
-    img: computer,
-    name: "Computer",
+    img: fragrances,
+    name: "fragrances",
   },
   {
     id: 4,
-    img: health,
-    name: "Health",
+    img: skincare,
+    name: "skincare",
   },
   {
     id: 5,
-    img: furniture,
-    name: "Furniture",
+    img: groceries,
+    name: "groceries",
   },
   {
     id: 6,
-    img: fashion,
-    name: "Fashion",
+    img: homedecoration,
+    name: "home-decoration",
+  },
+  {
+    id: 7,
+    img: furniture,
+    name: "furniture",
+  },
+  {
+    id: 8,
+    img: tops,
+    name: "tops",
+  },
+  {
+    id: 9,
+    img: womensDress,
+    name: "womens-dresses",
+  },
+  {
+    id: 10,
+    img: womenShoes,
+    name: "womens-shoes",
+  },
+  {
+    id: 11,
+    img: menShirt,
+    name: "mens-shirt",
+  },
+  {
+    id: 12,
+    img: menShoes,
+    name: "mens-shoes",
+  },
+  {
+    id: 13,
+    img: menWatches,
+    name: "mens-watches",
+  },
+  {
+    id: 14,
+    img: WomenWatch,
+    name: "womens-watches",
+  },
+  {
+    id: 15,
+    img: Bag,
+    name: "womens-bags",
+  },
+  {
+    id: 16,
+    img: Jewellery,
+    name: "womens-jewellery",
+  },
+  {
+    id: 17,
+    img: Sunglasses,
+    name: "sunglasses",
+  },
+  {
+    id: 18,
+    img: Automotive,
+    name: "automotive",
+  },
+  {
+    id: 19,
+    img: Motorcycle,
+    name: "motorcycle",
+  },
+  {
+    id: 20,
+    img: Lighting,
+    name: "lighting",
   },
 ];

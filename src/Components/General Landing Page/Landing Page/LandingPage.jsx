@@ -80,13 +80,6 @@ const LandingPage = () => {
       </div>
 
       <div className="my-20">
-        <div className="mx-7">
-          <div className="">
-            <h1 className="font-custom font-bold sm:text-xl md:text-2xl">
-              Products You May Like
-            </h1>
-          </div>
-        </div>
         <Products />
       </div>
     </Layout>

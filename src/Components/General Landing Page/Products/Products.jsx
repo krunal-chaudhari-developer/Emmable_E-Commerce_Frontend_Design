@@ -1,64 +1,66 @@
-import React from "react";
-import { AiFillStar } from "react-icons/ai";
-import { IoLocationSharp } from "react-icons/io5";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { sale } from "../..";
+import axios from "axios";
+import { AiFillStar } from "react-icons/ai";
 
 const Products = () => {
+  const [sale, setSale] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://dummyjson.com/products`)
+      .then((res) => setSale(res.data.products));
+  }, []);
+
   return (
     <>
       <div className="">
+        <div className="mx-7">
+          <div className="flex justify-between">
+            <h1 className="font-custom font-bold sm:text-xl md:text-2xl">
+              Products You May Like
+            </h1>
+          </div>
+        </div>
         <div
-          className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  px-1.5 sm:px-6 pb-5`}
+          className={` grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  px-1.5 sm:px-6 pb-5`}
         >
-          {sale.map((img, id) => (
+          {sale.slice(0, 15).map((e, id) => (
             <Link
-              key={id}
-              to={`/singleproduct`}
+              key={e.id}
+              to={`/singleproduct/${e.id}`}
               className="shadow-md rounded-lg h-fit w-fit mx-1 sm:mx-3 my-3"
             >
               <div className="">
                 <div className="">
                   <img
-                    src={img.img}
-                    alt="products"
-                    className={` w-32 h-32 sm:w-44 sm:h-32 lg:w-56 lg:h-44 rounded-t-lg`}
+                    src={e.thumbnail}
+                    alt={e.title}
+                    className={`lg:w-56 lg:h-44 rounded-t-lg`}
                   />
                 </div>
                 <div className="px-2.5 py-1">
-                  <h1
-                    className={` w-28 lg:w-52 text-xs lg:text-sm font-semibold`}
-                  >
-                    {"Awesome Brand - Cool product with nice color Cool product with nice color".substring(
-                      0,
-                      44
-                    )}
+                  <h1 className={` lg:w-52 text-xs lg:text-sm font-semibold`}>
+                    {e.description.substring(0, 44)}
                     ...
                   </h1>
 
-                  <h1 className="font-bold my-2 text-xs lg:text-sm">$85.00</h1>
-
-                  <div className="flex">
+                  <div className="flex my-2 space-x-3">
+                    <h1 className="font-bold text-xs lg:text-sm">${e.price}</h1>
                     <h1 className="text-red-600 bg-red-100 px-1 rounded text-xs lg:text-sm">
-                      40%
+                      {e.discountPercentage}%
                     </h1>
-                    <h1 className="line-through mx-2 font-semibold text-xs lg:text-sm">
-                      $46,000
-                    </h1>
-                  </div>
-
-                  <div className="flex my-2">
-                    <IoLocationSharp className="text-gray-600 sm:mt-1" />
-                    <h1 className="font-semibold text-xs lg:text-sm">Mumbai</h1>
                   </div>
 
                   <div className="flex pb-3">
-                    <AiFillStar className="text-yellow-400 mt-0.5 md:mt-1" />
-                    <div className="flex space-x-2 mx-1">
-                      <h1 className="text-xs lg:text-sm mt-0.5 md:mt-0">4.8</h1>
+                    <AiFillStar className="text-yellow-400 mt-0.5" />
+                    <div className="flex space-x-2">
+                      <h1 className="text-xs font-semibold lg:text-sm">
+                        {e.rating}
+                      </h1>
                       <h1 className="text-xs lg:text-sm">|</h1>
-                      <h1 className="text-xs lg:text-sm mt-0.5 md:mt-0">
-                        Sold 700+
+                      <h1 className="text-xs font-semibold lg:text-sm mt-1 lg:mt-0">
+                        Stock : {e.stock}
                       </h1>
                     </div>
                   </div>
