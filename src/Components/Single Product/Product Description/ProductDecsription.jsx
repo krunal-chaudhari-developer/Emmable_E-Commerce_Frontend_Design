@@ -133,7 +133,7 @@ const ProductDecsription = () => {
 
         {/* Buy Now Button */}
         <div className="">
-          <BuyNow stock={product.stock} />
+          <BuyNow stock={product.stock} price={product.price} />
         </div>
       </div>
     </>

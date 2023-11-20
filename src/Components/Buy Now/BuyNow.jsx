@@ -3,9 +3,10 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlus, BsCheckLg } from "react-icons/bs";
 import { PiWarningCircleBold } from "react-icons/pi";
 
-const BuyNow = ({ stock }) => {
+const BuyNow = ({ stock, price }) => {
   const [Wishlist, setWishlist] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const subtotal = price * quantity + 5;
 
   const handlePlus = () => {
     setQuantity(() => quantity + 1);
@@ -17,7 +18,7 @@ const BuyNow = ({ stock }) => {
 
   return (
     <>
-      <div className="border rounded-lg shadow-sm mx-4">
+      <div className="border rounded-lg shadow-sm mx-10 my-4">
         <div className="flex justify-between p-3">
           <div className="">
             <h1 className="flex space-x-2">
@@ -52,84 +53,99 @@ const BuyNow = ({ stock }) => {
 
         <div className="p-3">
           <div className="flex justify-between">
-            <div className="">
+            <div className="my-1">
               <h1 className="text-lg font-bold text-gray-600">Quantity</h1>
             </div>
 
-            <div className="flex">
-              <div className="">
-                <h1 className="">{quantity}</h1>
+            <div className="grid grid-cols-2 px-2 w-6/12 rounded-md border border-gray-400 shadow-sm shadow-gray-400">
+              <div className="p-1.5 my-1.5">
+                <h1 className="font-semibold">{quantity}</h1>
               </div>
 
-              <div className="">
-                <button onClick={handleMinus} className="">
+              <div className="space-x-1 my-1">
+                <button
+                  onClick={handleMinus}
+                  className="text-3xl font-semibold text-indigo-700 bg-gray-100 mt-0.5 px-2 rounded-lg"
+                >
                   -
                 </button>
-                <button onClick={handlePlus} className="">
+                <button
+                  onClick={handlePlus}
+                  className="text-3xl font-semibold text-indigo-700 bg-gray-100 mt-0.5 px-2 rounded-lg"
+                >
                   +
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="">
+          <div className="space-y-2 my-4">
             <div className=" grid grid-cols-2">
               <div className="">
-                <h1 className="">Price :</h1>
+                <h1 className="font-bold text-gray-600">Price :</h1>
               </div>
 
-              <div className="">
-                <h1 className="">$85.00</h1>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2">
-              <div className="">
-                <h1 className="">Shipping :</h1>
-              </div>
-
-              <div className="">
-                <h1 className="">$5.00</h1>
+              <div className="flex space-x-3">
+                <h1 className="font-semibold">${price * quantity}</h1>
               </div>
             </div>
 
             <div className="grid grid-cols-2">
               <div className="">
-                <h1 className="">Subtotal :</h1>
+                <h1 className="font-bold text-gray-600">Shipping :</h1>
               </div>
 
               <div className="">
-                <h1 className="">$90.00</h1>
+                <h1 className="font-semibold">$5</h1>
+              </div>
+            </div>
+
+            <div className="border w-9/12" />
+
+            <div className="grid grid-cols-2">
+              <div className="">
+                <h1 className="font-bold text-gray-600">Subtotal :</h1>
+              </div>
+
+              <div className="">
+                <h1 className="font-semibold">${subtotal}</h1>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="">
-          <div className="">
-            <button className="flex">
-              <BsCartPlus size={20} />
-              <span className="">Add to Cart</span>
+        <div className="space-y-3">
+          <div className="bg-indigo-700 hover:bg-indigo-800 flex justify-center mx-5 p-2.5 rounded-lg">
+            <button className="flex space-x-3">
+              <BsCartPlus size={22} className="text-white font-semibold" />
+              <span className="text-white font-semibold text-lg">
+                Add to Cart
+              </span>
             </button>
           </div>
 
-          <div className="">
-            <button className="">Buy Now</button>
+          <div className="border border-indigo-700 hover:bg-slate-200 mx-5 p-2.5 rounded-lg flex justify-center">
+            <button className="text-indigo-700 font-bold">Buy Now</button>
           </div>
         </div>
 
-        <div className="">
+        <div className="my-4 flex justify-center">
           <label onClick={() => setWishlist(!Wishlist)} className="flex">
             {Wishlist ? (
               <>
-                <AiFillHeart size={20} />
+                <AiFillHeart size={20} className="mt-1 mx-2 text-indigo-700" />
               </>
             ) : (
               <>
-                <AiOutlineHeart size={20} />
+                <AiOutlineHeart
+                  size={20}
+                  className="mt-1 mx-2 text-indigo-700"
+                />
               </>
             )}
-            <h1 className="">Wishlist</h1>
+            <h1 className="text-lg font-custom font-semibold text-indigo-700">
+              Wishlist
+            </h1>
           </label>
         </div>
       </div>
